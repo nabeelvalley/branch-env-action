@@ -1,9 +1,17 @@
 {
   "name": "branch-env-action",
   "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
+  "description": "A GitHub action to set secrets based on the active branch",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "parcel build main.js --target node --bundle-node-modules"
+  },
+  "keywords": [],
+  "author": "",
   "dependencies": {
-    "@actions/core": "~1.6.0"
-  }
+    "@actions/core": "^1.2.4",
+    "dotenv": "^8.2.0",
+    "parcel": "^1.12.4"
+  },
+  "devDependencies": {}
 }

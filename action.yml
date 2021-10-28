@@ -1,0 +1,13 @@
+name: 'Branch ENV Action'
+description: 'A GitHub action to set secrets based on the active branch'
+branding:
+  icon: info
+  color: purple
+inputs:
+  secrets:
+    description: 'Comma-separated list of secrets that need to be converted'
+    required: true
+    default: ''
+runs:
+  using: 'node12'
+  main: 'dist/main.js'
