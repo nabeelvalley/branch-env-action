@@ -15,11 +15,11 @@ jobs:
         run: yarn install
       - name: Build
         run: yarn build
-      - name: Check Status
-        run: git status
-      - name: Add Files
-        run: git add dist
-      - name: Commit
-        run: 'git commit -m ":construction_worker: CI Dist Update"'
-      - name: Push
-        run: git push
+      - name: Update Repo
+        run: |
+          git config user.email "action@github.com"
+          git config user.name "GitHub Action"
+          git status
+          git add dist
+          git commit -m ":construction_worker: CI Dist Update"
+          git push
