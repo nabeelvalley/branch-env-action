@@ -1,4 +1,4 @@
-import core from '@actions/core'
+import * as core from '@actions/core'
 
 /**
  * Convert the `ref` to a branch name prefix, like so:

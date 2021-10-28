@@ -1,15 +1,15 @@
 {
   "name": "branch-env-action",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A GitHub action to set secrets based on the active branch",
-  "main": "dist/main.js",
+  "node": "dist/main.js",
   "source": "src/main.ts",
   "scripts": {
     "build": "parcel build",
     "tsc": "tsc"
   },
   "targets": {
-    "main": {
+    "node": {
       "includeNodeModules": true
     }
   },
