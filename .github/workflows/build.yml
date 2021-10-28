@@ -20,6 +20,6 @@ jobs:
       - name: Add Files
         run: git add dist
       - name: Commit
-        run: git commit -m ":construction_worker: CI Dist Update"
+        run: 'git commit -m ":construction_worker: CI Dist Update"'
       - name: Push
         run: git push
