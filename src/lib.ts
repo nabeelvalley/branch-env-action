@@ -1,4 +1,4 @@
-const core = require('@actions/core')
+import core from '@actions/core'
 
 /**
  * Convert the `ref` to a branch name prefix, like so:
@@ -7,7 +7,7 @@ const core = require('@actions/core')
  * @param {string} ref
  * @returns
  */
-const refToPrefix = (ref) => {
+export const refToPrefix = (ref: string): string => {
   if (ref.startsWith('refs/') && !ref.startsWith('refs/heads/')) {
     throw new Error(`Ref ${ref} doesn't point to a branch`)
   }
@@ -20,16 +20,17 @@ const refToPrefix = (ref) => {
  * defined for PRs and will
  * @returns the ref of the current branch
  */
-const getRef = () => {
+export const getRef = (): string => {
   const { GITHUB_REF, GITHUB_BASE_REF } = process.env
-  return GITHUB_BASE_REF || GITHUB_REF
+  const ref = GITHUB_BASE_REF || GITHUB_REF
+  return ref as string
 }
 
 /**
  * Gets the names of all secrets provided to the workflow
- * @returns {string[]} list of secret names
+ * @returns list of secret names
  */
-const getSecretNames = () => {
+export const getSecretNames = (): string[] => {
   return core
     .getInput('secrets', { required: true })
     .replace(/ /g, '')
@@ -46,19 +47,12 @@ const getSecretNames = () => {
  *
  * `secrets[env.BRANCH_SECRET_NAME]`
  *
- * @param {string} prefix
- * @param {string} secretName
+ * @param prefix
+ * @param secretName
  * */
-const exportSecret = (prefix, secretName) => {
+export const exportSecret = (prefix: string, secretName: string): void => {
   const branchSecretKey = `BRANCH_${secretName}`
   const resolvedSecretName = `${prefix}_${secretName}`
 
   core.exportVariable(branchSecretKey, resolvedSecretName)
-}
-
-module.exports = {
-  refToPrefix,
-  getRef,
-  getSecretNames,
-  exportSecret,
 }

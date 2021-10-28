@@ -3,15 +3,26 @@
   "version": "1.0.0",
   "description": "A GitHub action to set secrets based on the active branch",
   "main": "dist/main.js",
+  "source": "src/main.ts",
   "scripts": {
-    "build": "parcel build main.js --target node --bundle-node-modules"
+    "build": "parcel build",
+    "tsc": "tsc"
+  },
+  "targets": {
+    "main": {
+      "includeNodeModules": true
+    }
+  },
+  "engines": {
+    "node": "14"
   },
   "keywords": [],
   "author": "",
   "dependencies": {
-    "@actions/core": "^1.2.4",
-    "dotenv": "^8.2.0",
-    "parcel": "^1.12.4"
+    "@actions/core": "1.6.0",
+    "parcel": "2.0.0",
+    "tsc": "~2.0.3",
+    "typescript": "~4.4.4"
   },
   "devDependencies": {}
 }

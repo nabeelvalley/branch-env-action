@@ -1,4 +1,4 @@
-const { getSecretNames, getRef, refToPrefix, exportSecret } = require('./lib')
+import { getSecretNames, getRef, refToPrefix, exportSecret } from './lib'
 
 const secretNames = getSecretNames()
 const ref = getRef()

@@ -15,9 +15,11 @@ jobs:
         run: yarn install
       - name: Build
         run: yarn build
-      - name: Update dist
-        uses: test-room-7/action-update-file@v1
-        with:
-          file-path: dist/main.js
-          commit-msg: ':construction_worker: Action dist update'
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Check Status
+        run: git status
+      - name: Add Files
+        run: git add dist
+      - name: Commit
+        run: git commit -m ":construction_worker: CI Dist Update"
+      - name: Push
+        run: git push
